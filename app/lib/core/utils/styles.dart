@@ -4,6 +4,7 @@ class Styles {
   static TextStyle text25 = const TextStyle(
     fontSize: 25,
     fontWeight: FontWeight.w500,
+    color: Colors.black,
   );
   static TextStyle text18 = const TextStyle(
     fontSize: 18,
