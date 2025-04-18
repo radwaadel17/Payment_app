@@ -2,9 +2,10 @@ import 'package:app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class TextWidget extends StatelessWidget {
-  const TextWidget({super.key, required this.txtOne, required this.txtTwo});
+  const TextWidget({super.key, required this.txtOne, required this.txtTwo, this.textStyle});
   final String txtOne ;
   final String txtTwo;
+  final TextStyle? textStyle ;
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +14,9 @@ class TextWidget extends StatelessWidget {
       child: Row(
         
         children: [
-           Text(txtOne , style: Styles.text18,),
+           Text(txtOne , style: textStyle ?? Styles.text18, ),
             const Spacer(),
-           Text(txtTwo , style: Styles.text18 ,),
+           Text(txtTwo , style: textStyle ?? Styles.text18 ,),
         ],
       ),
     );
