@@ -6,7 +6,22 @@ class MyCartViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
-      children: [],
+      children: [
+      ],
+    );
+  }
+}
+
+class CustomAppbar extends StatelessWidget {
+  const CustomAppbar({super.key, required this.txt});
+   final String txt ;
+  @override
+  Widget build(BuildContext context) {
+    return const SafeArea(
+      child:  Row(
+        children: [
+        ],
+      ),
     );
   }
 }
