@@ -13,7 +13,6 @@ class PaymentApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      locale: const Locale('ar'),
       localizationsDelegates:const [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,
