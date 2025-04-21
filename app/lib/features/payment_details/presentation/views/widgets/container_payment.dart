@@ -11,7 +11,7 @@ class ContainerPayment extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       margin: const EdgeInsets.symmetric(horizontal: 12),
-      duration: const Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 300),
       height: 63,
       width: 103,
       decoration: BoxDecoration(
