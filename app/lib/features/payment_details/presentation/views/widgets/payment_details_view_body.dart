@@ -9,6 +9,8 @@ class PaymentDetailsBody extends StatelessWidget {
     return const Column(
         children: [
           CustomAppbar(txt: 'Payment Details',),
+
+          
         ],
     );
   }
