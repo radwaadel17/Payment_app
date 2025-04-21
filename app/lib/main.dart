@@ -13,6 +13,7 @@ class PaymentApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+   
       localizationsDelegates:const [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,
@@ -22,6 +23,9 @@ class PaymentApp extends StatelessWidget {
             supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
      home: const MyCartView(),
+     theme: ThemeData(
+      scaffoldBackgroundColor: Colors.white
+     ),
     );
 }
 }
