@@ -1,5 +1,7 @@
 import 'package:app/features/my_cart/presentation/views/my_cart_screen.dart';
+import 'package:app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const PaymentApp());
@@ -10,9 +12,16 @@ class PaymentApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+      localizationsDelegates:const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
-     home: MyCartView(),
+     home: const MyCartView(),
     );
 }
 }
