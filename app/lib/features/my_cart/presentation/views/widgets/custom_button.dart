@@ -3,7 +3,8 @@ import 'package:app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
+  const CustomButton({super.key , required this.onPressed });
+  final void Function() onPressed ;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,7 +12,7 @@ class CustomButton extends StatelessWidget {
       child: SizedBox(
         width: context.screenWidth,
         height: 80,
-        child: TextButton(onPressed: (){}, style: TextButton.styleFrom(
+        child: TextButton(onPressed: onPressed, style: TextButton.styleFrom(
           backgroundColor:const  Color(0xff34A853),
           shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),

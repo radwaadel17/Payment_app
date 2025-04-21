@@ -1,9 +1,10 @@
 import 'package:app/core/utils/device_size.dart';
 import 'package:app/core/utils/image_class.dart';
 import 'package:app/core/utils/styles.dart';
-import 'package:app/features/my_cart/presentation/views/widgets/custom_app_bar.dart';
+import 'package:app/core/widgets/custom_app_bar.dart';
 import 'package:app/features/my_cart/presentation/views/widgets/custom_button.dart';
 import 'package:app/features/my_cart/presentation/views/widgets/text_widget.dart';
+import 'package:app/features/payment_details/presentation/views/payment_details_view.dart';
 import 'package:flutter/material.dart';
 
 class MyCartViewBody extends StatelessWidget {
@@ -37,7 +38,11 @@ class MyCartViewBody extends StatelessWidget {
           textStyle: Styles.text24,
         ),
       const Spacer(),
-      const CustomButton(),
+      CustomButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+            return const PaymentDetailsView();
+        }));
+      },),
       const SizedBox(height:20,),
       ],
     );
