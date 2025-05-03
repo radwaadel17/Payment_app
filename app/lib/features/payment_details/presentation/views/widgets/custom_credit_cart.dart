@@ -15,38 +15,55 @@ class _CustomCreditCardState extends State<CustomCreditCard> {
   bool showBackView = false;
 
   final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled ;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CreditCardWidget(
+    return Expanded(
+      child: Column(
+        children: [
+          CreditCardWidget(
+              cardNumber: cardNumber,
+              expiryDate: expiryDate,
+              cardHolderName: cardHolderName,
+              cvvCode: cvvCode,
+              showBackView: showBackView,
+              onCreditCardWidgetChange: (value) {}),
+          CreditCardForm(
+            autovalidateMode: autovalidateMode,
+            isHolderNameVisible: true,
             cardNumber: cardNumber,
             expiryDate: expiryDate,
             cardHolderName: cardHolderName,
             cvvCode: cvvCode,
-            showBackView: showBackView,
-            onCreditCardWidgetChange: (value) {}),
-        CreditCardForm(
-          isHolderNameVisible: true,
-          cardNumber: cardNumber,
-          expiryDate: expiryDate,
-          cardHolderName: cardHolderName,
-          cvvCode: cvvCode,
-          // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
-          onCreditCardModelChange: (CreditCardModel){
-            cardNumber = CreditCardModel.cardNumber ; 
-            expiryDate = CreditCardModel.expiryDate ; 
-            cvvCode = CreditCardModel.cvvCode ; 
-            showBackView = CreditCardModel.isCvvFocused ; 
-            cardHolderName = CreditCardModel.cardHolderName;
-            setState(() {
-              
-            });
-          },
-          formKey: formKey),
-          CustomButton(onPressed: (){}, txt: 'Pay',),
-      ],
+            // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
+            onCreditCardModelChange: (CreditCardModel){
+              cardNumber = CreditCardModel.cardNumber ; 
+              expiryDate = CreditCardModel.expiryDate ; 
+              cvvCode = CreditCardModel.cvvCode ; 
+              showBackView = CreditCardModel.isCvvFocused ; 
+              cardHolderName = CreditCardModel.cardHolderName;
+              setState(() {
+                
+              });
+            },
+            formKey: formKey),
+           const Spacer(flex: 2,),
+            CustomButton(onPressed: (){
+              if(formKey.currentState!.validate()){
+                formKey.currentState!.save();
+              }
+              else{
+               autovalidateMode = AutovalidateMode.always;
+               setState(() {
+                 
+               });
+              }
+            }, txt: 'Pay',),
+           const Spacer(flex: 1,),
+
+        ],
+      ),
     );
   }
 }
