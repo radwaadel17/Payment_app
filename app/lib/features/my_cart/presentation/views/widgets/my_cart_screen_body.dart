@@ -38,7 +38,9 @@ class MyCartViewBody extends StatelessWidget {
           textStyle: Styles.text24,
         ),
       const Spacer(),
-      CustomButton(onPressed: (){
+      CustomButton(
+        txt: 'Complete Payment',
+        onPressed: (){
         Navigator.push(context, MaterialPageRoute(builder: (context){
             return const PaymentDetailsView();
         }));

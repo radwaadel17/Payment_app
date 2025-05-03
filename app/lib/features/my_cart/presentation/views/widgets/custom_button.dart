@@ -3,8 +3,9 @@ import 'package:app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key , required this.onPressed });
+  const CustomButton({super.key , required this.onPressed, required this.txt });
   final void Function() onPressed ;
+  final String txt ;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,7 +18,7 @@ class CustomButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
           )
-        ), child: Text('Complete Payment' , style: Styles.text25.copyWith(color: Colors.black),),
+        ), child: Text(txt , style: Styles.text25.copyWith(color: Colors.black),),
         
         ),
       ),
